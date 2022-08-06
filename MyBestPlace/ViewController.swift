@@ -23,6 +23,22 @@ class ViewController: UIViewController , MKMapViewDelegate , CLLocationManagerDe
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
+        let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(takeLocation(gestureRecognizer:)))
+        gestureRecognizer.minimumPressDuration = 3
+        myMap.addGestureRecognizer(gestureRecognizer)
+        
+    }
+    
+    @objc func takeLocation (gestureRecognizer : UILongPressGestureRecognizer){
+        if gestureRecognizer.state == .began{
+            let touchedPoint = gestureRecognizer.location(in: self.myMap)
+            let touchedCoordinates = self.myMap.convert(touchedPoint, toCoordinateFrom: self.myMap)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = touchedCoordinates
+            self.myMap.addAnnotation(annotation)
+            
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
