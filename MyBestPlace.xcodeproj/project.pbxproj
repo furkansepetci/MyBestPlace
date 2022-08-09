@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A07333328A1A6290066D856 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A07333228A1A6290066D856 /* TableViewController.swift */; };
 		3A8B5950289DF9EA00AEBF27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B594F289DF9EA00AEBF27 /* AppDelegate.swift */; };
 		3A8B5952289DF9EA00AEBF27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B5951289DF9EA00AEBF27 /* SceneDelegate.swift */; };
 		3A8B5954289DF9EA00AEBF27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B5953289DF9EA00AEBF27 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A07333228A1A6290066D856 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3A8B594C289DF9EA00AEBF27 /* MyBestPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBestPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A8B594F289DF9EA00AEBF27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A8B5951289DF9EA00AEBF27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				3A8B594F289DF9EA00AEBF27 /* AppDelegate.swift */,
 				3A8B5951289DF9EA00AEBF27 /* SceneDelegate.swift */,
 				3A8B5953289DF9EA00AEBF27 /* ViewController.swift */,
+				3A07333228A1A6290066D856 /* TableViewController.swift */,
 				3A8B5955289DF9EA00AEBF27 /* Main.storyboard */,
 				3A8B595B289DF9EB00AEBF27 /* Assets.xcassets */,
 				3A8B595D289DF9EB00AEBF27 /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				3A8B5954289DF9EA00AEBF27 /* ViewController.swift in Sources */,
 				3A8B595A289DF9EA00AEBF27 /* MyBestPlace.xcdatamodeld in Sources */,
 				3A8B5950289DF9EA00AEBF27 /* AppDelegate.swift in Sources */,
+				3A07333328A1A6290066D856 /* TableViewController.swift in Sources */,
 				3A8B5952289DF9EA00AEBF27 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

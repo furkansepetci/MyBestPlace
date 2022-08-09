@@ -8,9 +8,16 @@
 import UIKit
 import MapKit
 import CoreLocation
+import CoreData
 
 class ViewController: UIViewController , MKMapViewDelegate , CLLocationManagerDelegate {
+    
+    var chosenLatitude = Double()
+    var chosenLongitude = Double()
 
+    @IBOutlet weak var nameLabel: UITextField!
+    @IBOutlet weak var commentLabel: UITextField!
+    
     @IBOutlet weak var myMap: MKMapView!
     var locationManager = CLLocationManager()
     
@@ -34,7 +41,13 @@ class ViewController: UIViewController , MKMapViewDelegate , CLLocationManagerDe
         if gestureRecognizer.state == .began{
             let touchedPoint = gestureRecognizer.location(in: self.myMap)
             let touchedCoordinates = self.myMap.convert(touchedPoint, toCoordinateFrom: self.myMap)
+            
+            chosenLatitude = touchedCoordinates.latitude
+            chosenLongitude = touchedCoordinates.longitude
+            
             let annotation = MKPointAnnotation()
+            annotation.title = nameLabel.text
+            annotation.subtitle = commentLabel.text
             annotation.coordinate = touchedCoordinates
             self.myMap.addAnnotation(annotation)
             
@@ -48,6 +61,39 @@ class ViewController: UIViewController , MKMapViewDelegate , CLLocationManagerDe
         myMap.setRegion(region, animated: true)
     }
 
-
+    @IBAction func saveButton(_ sender: Any) {
+        
+        if nameLabel.text != "" && commentLabel.text != "" {
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let places = NSEntityDescription.insertNewObject(forEntityName: "BestPlace", into: context)
+            
+            places.setValue(nameLabel.text, forKey: "name")
+            places.setValue(commentLabel.text, forKey: "comment")
+            places.setValue(UUID(), forKey: "id")
+            places.setValue(chosenLatitude, forKey: "latitude")
+            places.setValue(chosenLongitude, forKey: "longitude")
+            
+            do{
+                try context.save()
+                print("OK")
+            }catch{
+                print("Error")
+            }
+        }else{
+            alertFunction(message: "PLease Enter Name and Comment")
+        }
+    }
+    
+    func alertFunction (message:String){
+        
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
+        let okButton = UIAlertAction.init(title: "OK", style: UIAlertAction.Style.cancel, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
