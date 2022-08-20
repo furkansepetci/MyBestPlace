@@ -92,8 +92,9 @@ class ViewController: UIViewController , MKMapViewDelegate , CLLocationManagerDe
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
         let okButton = UIAlertAction.init(title: "OK", style: UIAlertAction.Style.cancel, handler: nil)
         alert.addAction(okButton)
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
 }
+
 

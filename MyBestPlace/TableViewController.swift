@@ -26,7 +26,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         getData()
     }
     
-    
     @IBAction func unwindSegue(_ sender:UIStoryboardSegue){}
     
     func getData () {
